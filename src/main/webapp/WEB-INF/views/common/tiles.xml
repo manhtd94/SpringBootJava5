@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<!-- Base Define -->
+	<definition name="base.definition" template="/WEB-INF/views/common/_classic.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/_header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/common/_menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/_footer.jsp" />
+	</definition>
+
+	<!-- home -->
+	<definition name="home" extends="base.definition">
+		<put-attribute name="title" value="Home Page" />
+		<put-attribute name="body" value="/WEB-INF/views/homePage.jsp" />
+	</definition>
+	
+	<!-- department -->
+	<definition name="alldepartment" extends="base.definition">
+		<put-attribute name="title" value="All Department" />
+		<put-attribute name="body" value="/WEB-INF/views/department/showDepartment.jsp" />
+	</definition>
+
+
+	<definition name="achiveDepartment" extends="base.definition">
+		<put-attribute name="title" value="Achivement Department" />
+		<put-attribute name="body" value="/WEB-INF/views/department/achiveDepartment.jsp" />
+	</definition>
+	
+	<definition name="createDepartment" extends="base.definition">
+		<put-attribute name="title" value="Create Department" />
+		<put-attribute name="body" value="/WEB-INF/views/department/createDepartment.jsp" />
+	</definition>
+	
+	<definition name="updateDepartment" extends="base.definition">
+		<put-attribute name="title" value="Edit Department" />
+		<put-attribute name="body" value="/WEB-INF/views/department/updateDepartment.jsp" />
+	</definition>
+	
+	<!-- staff -->
+	<definition name="achiveStaff" extends="base.definition">
+		<put-attribute name="title" value="Achivement Staff" />
+		<put-attribute name="body" value="/WEB-INF/views/staff/achiveStaff.jsp" />
+	</definition>
+	<definition name="allStaff" extends="base.definition">
+		<put-attribute name="title" value="All Department" />
+		<put-attribute name="body" value="/WEB-INF/views/staff/showStaff.jsp" />
+	</definition>
+	<definition name="createStaff" extends="base.definition">
+		<put-attribute name="title" value="New Department" />
+		<put-attribute name="body" value="/WEB-INF/views/staff/createStaff.jsp" />
+	</definition>
+	<definition name="updateStaff" extends="base.definition">
+		<put-attribute name="title" value="Edit Department" />
+		<put-attribute name="body" value="/WEB-INF/views/staff/updateStaff.jsp" />
+	</definition>
+	
+	<!-- record -->
+	<definition name="record" extends="base.definition">
+		<put-attribute name="title" value="New Record" />
+		<put-attribute name="body" value="/WEB-INF/views/record/newRecord.jsp" />
+	</definition>
+
+</tiles-definitions>
