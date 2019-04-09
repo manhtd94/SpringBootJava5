@@ -1,25 +1,33 @@
 package fpt.java5.assignment.controller.depart;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import fpt.java5.assignment.entities.Department;
 import fpt.java5.assignment.service.depart.DepartService;
 
 @Controller
-public class UpdateD {
+public class GetByIdD {
 	
 	@Autowired
 	DepartService departService;
 	
-	@PostMapping("updateDepartment/{id}")
-	public String saveEdit(Model model,
+	@GetMapping("/updateDepartment/{id}")
+	public String showPage(Model model,
+			@PathVariable("id") int id,
 			@ModelAttribute("editDepartment") Department editDepartment) {
 		
-		departService.save(editDepartment);
-		return "redirect:/alldepartment";
+		editDepartment = departService.getDepartmentById(id);
+		model.addAttribute("editDepartment", editDepartment);
+		
+		return "updateDepartment";
 	}
+	
+	
+	
 }

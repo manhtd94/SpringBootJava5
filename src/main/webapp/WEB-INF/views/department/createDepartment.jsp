@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <div class="content mt-3">
 	<div class="animated fadeIn">
 		<div class="row">
@@ -7,8 +10,8 @@
 						<strong>Create New Department</strong>
 					</div>
 					<div class="card-body card-block">
-						<form action="" method="post" enctype="multipart/form-data"
-							class="form-horizontal">
+						<form:form action="createDepartment" method="post" enctype="multipart/form-data"
+							class="form-horizontal" modelAttribute="newDepartment">
 							<!-- <div class="row form-group">
                                         <div class="col col-md-3"><label class=" form-control-label">Static</label>
                                         </div>
@@ -21,8 +24,8 @@
 									<label for="text-input" class=" form-control-label">Name</label>
 								</div>
 								<div class="col-12 col-md-9">
-									<input type="text" id="text-input" name="text-input"
-										placeholder="Text" class="form-control"><small
+									<form:input path="name" type="text" id="text-input" name="text-input"
+										placeholder="Text" class="form-control" /><small
 										class="form-text text-muted">This is a help text</small>
 								</div>
 							</div>
@@ -36,7 +39,7 @@
 									<i class="fa fa-ban"></i> Reset
 								</button>
 							</div>
-						</form>
+						</form:form>
 					</div>
 
 				</div>
