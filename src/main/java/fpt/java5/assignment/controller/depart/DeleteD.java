@@ -2,20 +2,20 @@ package fpt.java5.assignment.controller.depart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import fpt.java5.assignment.service.depart.DepartService;
 
 @Controller
-public class GetAllD {
-	
+public class DeleteD {
+
 	@Autowired
-	DepartService departService;
+	DepartService departmentService;
 	
-	@GetMapping({"/alldepartment"})
-	public String showHome(Model model) {
-		model.addAttribute("allDepartment", departService.findAll());
-		return "alldepartment";
+	@GetMapping("delete/{id}")
+	public String deleteDepartment(@PathVariable("id") int idDepartment) {
+		departmentService.delete(idDepartment);
+		return "redirect:/alldepartment";
 	}
 }
