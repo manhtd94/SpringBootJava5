@@ -27,9 +27,14 @@
                             aria-expanded="true">
                             <i class="flag-icon flag-icon-us"></i>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="language">
+                        
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true"
+                            aria-expanded="true">
+                            <i class="flag-icon flag-icon-vn"></i>
+                        </a>
+                        <!-- <div class="dropdown-menu" aria-labelledby="language">
                             <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
+                                <span class="flag-icon flag-icon-vn"></span>
                             </div>
                             <div class="dropdown-item">
                                 <i class="flag-icon flag-icon-es"></i>
@@ -40,7 +45,7 @@
                             <div class="dropdown-item">
                                 <i class="flag-icon flag-icon-it"></i>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
