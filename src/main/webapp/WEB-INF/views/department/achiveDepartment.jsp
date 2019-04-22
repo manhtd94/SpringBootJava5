@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <div class="breadcrumbs">
 	<div class="col-sm-4">
 		<div class="page-title">
@@ -16,6 +19,7 @@
 						<table class="table">
 							<thead>
 								<tr>
+									<th>ID</th>
 									<th>Department</th>
 									<th>Total Achievement</th>
 									<th>Total Discipline</th>
@@ -23,30 +27,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Default</td>
-									<td>Defaultson</td>
-								</tr>
-								<tr class="success">
-									<td>Success</td>
-									<td>Doe</td>
-								</tr>
-								<tr class="danger">
-									<td>Danger</td>
-									<td>Moe</td>
-								</tr>
-								<tr class="info">
-									<td>Info</td>
-									<td>Dooley</td>
-								</tr>
-								<tr class="warning">
-									<td>Warning</td>
-									<td>Refs</td>
-								</tr>
-								<tr class="active">
-									<td>Active</td>
-									<td>Activeson</td>
-								</tr>
+								<c:forEach items="${totalDepart}" var="totalDepart">
+									<tr>
+										<td>${totalDepart[0]}</td>
+										<td>${totalDepart[1]}</td>
+										<td>${totalDepart[2]}</td>
+										<td>${totalDepart[3]}</td>
+										<td>${totalDepart[2] - totalDepart[3]}</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
