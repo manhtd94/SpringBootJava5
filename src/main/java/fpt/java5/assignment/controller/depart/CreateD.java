@@ -27,4 +27,6 @@ public class CreateD {
 		departService.save(newDepartment);
 		return "redirect:/alldepartment";
 	}
+	
+
 }

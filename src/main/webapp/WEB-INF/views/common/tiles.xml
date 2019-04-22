@@ -25,7 +25,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/department/showDepartment.jsp" />
 	</definition>
 
-
 	<definition name="achiveDepartment" extends="base.definition">
 		<put-attribute name="title" value="Achivement Department" />
 		<put-attribute name="body" value="/WEB-INF/views/department/achiveDepartment.jsp" />
@@ -46,17 +45,30 @@
 		<put-attribute name="title" value="Achivement Staff" />
 		<put-attribute name="body" value="/WEB-INF/views/staff/achiveStaff.jsp" />
 	</definition>
+	
 	<definition name="allStaff" extends="base.definition">
-		<put-attribute name="title" value="All Department" />
+		<put-attribute name="title" value="All Staffs" />
 		<put-attribute name="body" value="/WEB-INF/views/staff/showStaff.jsp" />
 	</definition>
+	
 	<definition name="createStaff" extends="base.definition">
-		<put-attribute name="title" value="New Department" />
+		<put-attribute name="title" value="New Staff" />
 		<put-attribute name="body" value="/WEB-INF/views/staff/createStaff.jsp" />
 	</definition>
+	
 	<definition name="updateStaff" extends="base.definition">
-		<put-attribute name="title" value="Edit Department" />
+		<put-attribute name="title" value="Edit Staff" />
 		<put-attribute name="body" value="/WEB-INF/views/staff/updateStaff.jsp" />
+	</definition>
+	
+	<definition name="findStaff" extends="base.definition">
+		<put-attribute name="title" value="Find Staff" />
+		<put-attribute name="body" value="/WEB-INF/views/staff/findStaff.jsp" />
+	</definition>
+	
+	<definition name="searchResult" extends="base.definition">
+		<put-attribute name="title" value="Find Staff" />
+		<put-attribute name="body" value="/WEB-INF/views/staff/searchResult.jsp" />
 	</definition>
 	
 	<!-- record -->
@@ -65,4 +77,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/record/newRecord.jsp" />
 	</definition>
 
+	
+	
 </tiles-definitions>

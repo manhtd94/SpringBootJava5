@@ -61,13 +61,12 @@
 
 	<section>
 		<div class="content">
-			<tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<tiles:insertAttribute name="header" />
 			<tiles:insertAttribute name="body" />
 		</div>
 	</section>
 
 	<footer>
-
 		<tiles:insertAttribute name="footer" />
 	</footer>
 
