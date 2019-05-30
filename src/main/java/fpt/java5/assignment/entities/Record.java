@@ -38,7 +38,7 @@ public class Record {
 	@Column(name = "reason")
 	private String reason;
 
-	@Column(name = "dateRecord")
+	@Column(name = "daterecord")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dateRecord;

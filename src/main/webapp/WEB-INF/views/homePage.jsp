@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <div class="breadcrumbs">
 	<div class="col-sm-4">
 		<div class="page-header float-left">
@@ -22,145 +25,34 @@
 	<div class="col-sm-12">
 		<div class="alert  alert-success alert-dismissible fade show"
 			role="alert">
-			<span class="badge badge-pill badge-success">Success</span> You
-			successfully read this important alert message.
-			<button type="button" class="close" data-dismiss="alert"
+			<span class="badge badge-pill badge-success">Top 12</span> Staffs have the most achievements
+			<!-- <button type="button" class="close" data-dismiss="alert"
 				aria-label="Close">
 				<span aria-hidden="true">&times;</span>
-			</button>
+			</button> -->
 		</div>
 	</div>
 
-
-	<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-1">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right">
-				
+	<c:forEach var="staff" items="${list10}">
+		<div class="col-sm-6 col-lg-3">
+			<div class="card text-white bg-flat-color-1">
+				<div class="card-body pb-0">
+					<div class="dropdown float-right"></div>
+					<h4 class="mb-0">
+						<img alt="" src="/imageupload/sad.jpg"> 
+						<span class="count">${staff[2]}</span>
+						</h4>
+					<p class="text-light">${staff[1]}</p>
+					<p class="text-light">General ${staff[5]}</p>
 				</div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
 			</div>
 		</div>
-	</div>
+	</c:forEach>
 	<!--/.col-->
+</div>
+<!--/.col-->
 
-	<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-2">
-			<div class="card-body pb-0">
-			 
-				<h4 class="mb-0">
-						<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	<!--/.col-->
-
-	<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-3">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right">
-				</div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-
-			</div>
-		</div>
-	</div>
-	<!--/.col-->
-
-	<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-4">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right"></div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	
-		<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-4">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right"></div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	
-		<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-4">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right"></div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	
-		<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-4">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right"></div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	
-		<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-4">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right"></div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	
-		<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-4">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right"></div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	
-		<div class="col-sm-6 col-lg-3">
-		<div class="card text-white bg-flat-color-4">
-			<div class="card-body pb-0">
-				<div class="dropdown float-right"></div>
-				<h4 class="mb-0">
-					<img alt="" src="/imageupload/sad.jpg"> <span class="count">10468</span>
-				</h4>
-				<p class="text-light">Members online</p>
-			</div>
-		</div>
-	</div>
-	<!--/.col-->
-
-	<!-- <div class="col-lg-3 col-md-6">
+<!-- <div class="col-lg-3 col-md-6">
 		<div class="social-box facebook">
 			<i class="fa fa-facebook"></i>
 			<ul>
@@ -209,9 +101,9 @@
 		</div>
 		/social-box
 	</div> -->
-	<!--/.col-->
+<!--/.col-->
 
-	<!-- <div class="col-xl-6">
+<!-- <div class="col-xl-6">
 		<div class="card">
 			<div class="card-body">
 				<div class="row">
@@ -403,7 +295,7 @@
 			</div>
 		</div>
 		/# card -->
-	</div>
+</div>
 
 
 </div>

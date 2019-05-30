@@ -4,6 +4,7 @@
             <div class="header-menu">
 
                 <div class="col-sm-7">
+                	<p>Welcome  ${pageContext.request.userPrincipal.name}</p>
                 </div>
 
                 <div class="col-sm-5">
@@ -18,7 +19,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                            <a class="nav-link" href="logout"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
 

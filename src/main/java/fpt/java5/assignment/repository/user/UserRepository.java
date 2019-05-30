@@ -1,10 +1,13 @@
 package fpt.java5.assignment.repository.user;
 
+import fpt.java5.assignment.entities.Staff;
 import org.springframework.data.repository.CrudRepository;
 
 import fpt.java5.assignment.entities.User;
 
-public interface UserRepository extends CrudRepository<User, Integer>  {
+import java.util.Optional;
+
+public interface UserRepository extends CrudRepository<Staff, Integer>  {
 	
-	User findByUserName(String userName);
+	Staff findByUserName(String userName);
 }

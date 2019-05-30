@@ -47,7 +47,7 @@
 												src="${pageContext.request.contextPath}/images/add.png">
 											</a> 
 												
-											<a href="detail/${staff.id}">
+											<a href="recordDetail/${staff.id}">
 													<img alt="delete" src="${pageContext.request.contextPath}/images/detail.png">
 											</a>
 										</td>

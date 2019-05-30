@@ -27,7 +27,7 @@
 						<strong>Create Record</strong>
 					</div>
 					<div class="card-body card-block">
-						<form:form action="" modelAttribute="newRecord" method="post"
+						<form:form action="record" modelAttribute="newRecord" method="post"
 							class="form-horizontal">
 							<div class="row form-group">
 								<div class="col col-md-3">

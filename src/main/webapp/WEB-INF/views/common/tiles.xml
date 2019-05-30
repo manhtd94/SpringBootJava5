@@ -76,7 +76,15 @@
 		<put-attribute name="title" value="New Record" />
 		<put-attribute name="body" value="/WEB-INF/views/record/newRecord.jsp" />
 	</definition>
-
 	
+	<definition name="recordDetail" extends="base.definition">
+		<put-attribute name="title" value="Record" />
+		<put-attribute name="body" value="/WEB-INF/views/record/recordDetail.jsp" />
+	</definition>
+	
+	<definition name="editDetailRecord" extends="base.definition">
+		<put-attribute name="title" value="Record Detail" />
+		<put-attribute name="body" value="/WEB-INF/views/record/updateDetailRecord.jsp" />
+	</definition>
 	
 </tiles-definitions>

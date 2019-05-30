@@ -10,6 +10,8 @@ public interface TotalRecord {
 	
 	List<Object[]> getAllRecordOfDepartment();
 	
+	List<Object[]> get10StaffMostAchevment(int limit);
+	
 	Record save(Record newRecord);
 	
 }

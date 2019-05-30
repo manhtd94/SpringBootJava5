@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,7 @@ public class Department implements Serializable {
 	private int id;
 
 
+	@NotBlank(message = "Name can't be empty")
 	@Column(name = "Name")
 	private String name;
 

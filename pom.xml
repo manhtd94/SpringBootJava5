@@ -72,7 +72,12 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+
 		<!-- Tiles API -->
 		<!-- http://mvnrepository.com/artifact/org.apache.tiles/tiles-api%20 -->
 		<dependency>
@@ -109,6 +114,17 @@
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-request-api</artifactId>
 			<version>1.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
 		</dependency>
 	</dependencies>
 

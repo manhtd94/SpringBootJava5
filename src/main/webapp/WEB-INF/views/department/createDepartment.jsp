@@ -26,7 +26,9 @@
 								<div class="col-12 col-md-9">
 									<form:input path="name" type="text" id="text-input" name="text-input"
 										placeholder="Text" class="form-control" /><small
-										class="form-text text-muted">This is a help text</small>
+										class="form-text text-muted">
+											<form:errors path="name"/>
+										</small>
 								</div>
 							</div>
 
