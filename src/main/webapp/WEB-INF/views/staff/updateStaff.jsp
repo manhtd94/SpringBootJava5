@@ -1,6 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
+<base href="${pageContext.servletContext.contextPath}/updateStaff">
 <div class="breadcrumbs">
 	<div class="col-sm-4">
 		<div class="page-header float-left">
@@ -22,9 +25,8 @@
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-body card-block">
-						<form:form action="updateStaff" method="post"
-							enctype="multipart/form-data" class="form-horizontal"
-							modelAttribute="staffUpdate">
+						<form:form action="" method="post" enctype="multipart/form-data"
+							class="form-horizontal" modelAttribute="staffUpdate">
 							<div class="row form-group">
 								<div class="col col-md-3">
 									<label class=" form-control-label">ID Staff</label>
@@ -90,10 +92,12 @@
 								</div>
 								<div class="col-12 col-md-9">
 									<input type="file" id="file-input" name="file-input"
-										class="form-control-file" /> 
-									<img style="with:50px; height: 50px;" alt="" src="/imageupload/${staffUpdate.photo}">
+										class="form-control-file" /> <img
+										style="with: 50px; height: 50px;" alt=""
+										src="/imageupload/${staffUpdate.photo}"> <input
+										type="hidden" value="${staffUpdate.photo}" name="imageName">
 								</div>
-								
+
 							</div>
 
 							<div class="row form-group">
@@ -150,6 +154,40 @@
 									<form:textarea path="note" name="textarea-input"
 										id="textarea-input" rows="9" placeholder="Content..."
 										class="form-control" />
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<div class="col col-md-3">
+									<label class=" form-control-label">Role</label>
+								</div>
+								<div class="col col-md-9">
+									<div class="form-check">
+										<c:choose>
+											<c:when test="${empty roleOfStaff }">
+												<c:forEach items="${listRole}" var="allRole">
+													<label for="checkbox1" class="form-check-label "> <input
+														type="checkbox" id="checkbox1" name="boxRole"
+														value="${allRole.name}"> ${allRole.name}
+													</label>
+												</c:forEach>
+											</c:when>
+
+											<c:when test="${not empty roleOfStaff }">
+												<c:forEach items="${roleOfStaff}" var="roleOfStaff">
+													<div class="checkbox">
+														<c:forEach items="${listRole}" var="allRole">
+															<label for="checkbox1" class="form-check-label ">
+																<input type="checkbox" id="checkbox1" name="boxRole"
+																value="${allRole.name}"
+																checked="${allRole.name == roleOfStaff.name?'checked':' ' }" />
+																${allRole.name}
+															</label>
+														</c:forEach>
+													</div></c:forEach>
+											</c:when>
+										</c:choose>
+									</div>
 								</div>
 							</div>
 

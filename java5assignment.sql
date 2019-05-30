@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2019 at 03:18 PM
+-- Generation Time: Apr 22, 2019 at 01:26 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -85,7 +85,9 @@ INSERT INTO `records` (`id`, `type`, `reason`, `dateRecord`, `date_record`, `sta
 (19, b'1', '......', '2019-04-06', NULL, 47),
 (20, b'1', '......', '2019-04-06', NULL, 48),
 (21, b'0', '......', '2019-04-06', NULL, 49),
-(22, b'0', 'test', NULL, '2019-04-18', 62);
+(22, b'0', 'test', NULL, '2019-04-18', 62),
+(23, b'1', 'adasd', NULL, '2019-04-22', 62),
+(24, b'1', 'adasd', NULL, '2019-04-22', 62);
 
 -- --------------------------------------------------------
 
@@ -241,31 +243,31 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `departs`
 --
 ALTER TABLE `departs`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_role`

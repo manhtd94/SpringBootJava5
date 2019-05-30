@@ -2,8 +2,11 @@ package fpt.java5.assignment.repository.record;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import fpt.java5.assignment.entities.Record;
 
@@ -25,6 +28,14 @@ public interface RecordRepository extends JpaRepository<Record, Integer> {
 			+ " FROM Record r "
 			+ " GROUP BY r.staff.department.id")
 	List<Object[]> findTotalAchieveOfDepartment();
+	
+	
+	@Query("SELECT r FROM Record r where r.staff.id = :idStaff")
+	@Transactional
+	List<Record> findRecordByIdStaff(@Param("idStaff") int idStaff);
+	
+	@Query("SELECT DISTINCT r.staff.id FROM Record r where r.id = :id")
+	int findIdStaffByRecord(@Param("id") int id);
 	
 	
 

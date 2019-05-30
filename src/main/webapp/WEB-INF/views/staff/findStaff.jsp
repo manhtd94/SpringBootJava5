@@ -35,7 +35,7 @@
 								<div class="col-12 col-md-9">
 									<input type="text" id="text-input" name="name"
 										placeholder="Text" class="form-control" />
-									<small class="form-text text-muted">This is a help text</small>
+									<small class="form-text text-muted">${notFound}</small>
 								</div>
 							</div>
 

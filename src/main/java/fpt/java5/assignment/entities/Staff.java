@@ -4,18 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -40,6 +32,7 @@ public class Staff implements Serializable {
 	@Column(name = "id")
 	private int id;
 
+	@NotBlank(message = "Name can't be empty")
 	@Column(name = "name")
 	private String name;
 
@@ -47,6 +40,7 @@ public class Staff implements Serializable {
 	private int gender;
 
 	
+	@NotNull(message = "Birthday can't be empty")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "birthday")
@@ -55,22 +49,40 @@ public class Staff implements Serializable {
 	@Column(name = "photo")
 	private String photo;
 
+	@NotBlank(message = "Email can't be empty")
 	@Column(name = "email")
 	private String email;
 
+	@NotNull(message = "Phone can't be empty")
 	@Column(name = "phone")
 	private int phone;
 
+	@DecimalMin(value = "1000000")
 	@Column(name = "salary")
 	private float salary;
 
+	@NotNull(message = "Note can't be empty")
 	@Column(name = "notes")
 	private String note;
+	
+	@Column(name = "username")
+	private String userName;
+	
+	@Column(name = "password")
+	private String password;
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(
+				name = "user_role",
+				joinColumns = @JoinColumn(name = "id_user"),
+				inverseJoinColumns = @JoinColumn(name = "id_role")
+			)
+	private Set<Role> roles;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "depart_id") // name in db
 	private Department department;
 	
 	@OneToMany(mappedBy = "staff", fetch =  FetchType.LAZY)
-	private Set<Record> getRecord; 
+	private Set<Record> record; 
 }

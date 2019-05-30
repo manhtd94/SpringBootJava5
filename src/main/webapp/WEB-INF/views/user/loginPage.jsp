@@ -7,7 +7,7 @@
 <html lang="vi">
 
 <head>
-<title>Login V17</title>
+<title>Login</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -38,8 +38,8 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="css/util.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/util.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
 <!--===============================================================================================-->
 </head>
 
@@ -69,7 +69,7 @@
 
 					<div class="container-login100-form-btn">
 						<c:if test="${param.error == 'true'}">
-							<h2 style="color: red; margin: 10px 0px;">Login Failed!!!</h2>
+							<h2 style="color: red; margin: 10px 0;">Login Failed!!!</h2>
 						</c:if>
 						<button class="login100-form-btn">Sign in</button>
 					</div>

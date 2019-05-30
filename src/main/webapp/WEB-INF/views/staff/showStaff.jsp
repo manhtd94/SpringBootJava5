@@ -14,7 +14,6 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-
 					<div class="container">
 						<table class="table" style="font-size: 14px;">
 							<thead>
@@ -63,11 +62,18 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<nav aria-label="Page navigation example">
+							<ul class="pagination pg-blue">
+								<li class="page-item"><a class="page-link">Previous</a></li>
+								<c:forEach var="number" items="${numberPagination}">
+								<li class="page-item"><a class="page-link" href="allStaff?page=${number}">${number}</a></li>
+								</c:forEach>
+								<li class="page-item"><a class="page-link">Next</a></li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 	<!-- .animated -->
