@@ -25,22 +25,22 @@ import lombok.Setter;
 @Setter
 public class Department implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Id")
-	private int id;
-
-
-	@NotBlank(message = "Name can't be empty")
-	@Column(name = "Name")
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
+    private int id;
 
 
-	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
-	private Set<Staff> getStaff = new HashSet<>(0);
+    @NotBlank(message = "Name can't be empty")
+    @Column(name = "Name")
+    private String name;
+
+
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private Set<Staff> getStaff = new HashSet<>(0);
 }

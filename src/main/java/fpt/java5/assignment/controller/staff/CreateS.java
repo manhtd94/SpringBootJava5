@@ -99,7 +99,7 @@ public class CreateS {
 
                     //add role member for new Staff
                     Set<Role> roleNewStaff = new HashSet<>();
-                    roleNewStaff.add(roleRepository.findByName("ROLE_MEMBER"));
+                    roleNewStaff.add(roleRepository.findByName("MEMBER"));
                     newStaff.setRoles(roleNewStaff);
 
                     staffService.save(newStaff);

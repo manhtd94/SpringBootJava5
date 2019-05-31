@@ -1,10 +1,17 @@
 package fpt.java5.assignment.controller.staff;
 
+import java.security.Principal;
 import java.util.List;
 
+import fpt.java5.assignment.entities.Role;
+import fpt.java5.assignment.service.user.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,31 +23,35 @@ import fpt.java5.assignment.service.staff.StaffService;
 
 @Controller
 public class GetAllS {
-	
-	@Autowired
-	StaffService staffService;
-	
-	@Autowired
-	Pagination pagination;
-	
-	@GetMapping({"/allStaff"})
-	public String showPage(Model model,
-			@RequestParam(name = "page", required = false, defaultValue = "1") Integer page) {
-		
-		//Số phần tử trong 1 page
-		int size = 10;
-		Pageable pageable = PageRequest.of((page - 1), size);
 
-		model.addAttribute("listStaffs", pagination.listStaffInPage(pageable));
-		
-		//Số trang pagination
-		List<Staff> listDepart = staffService.getAllStaffs();
-		
-		//Số phần tử trong list
-		int lengthOfList = listDepart.size();
-		model.addAttribute("numberPagination", pagination.numberPagination(size,lengthOfList));
-		
-		//model.addAttribute("listStaffs", staffService.getAllStaffs());
-		return "allStaff";
-	}
+    @Autowired
+    StaffService staffService;
+
+    @Autowired
+    Pagination pagination;
+
+    @GetMapping({"/allStaff"})
+    public String showPage(Model model,
+                           @RequestParam(name = "page", required = false, defaultValue = "1") Integer page) {
+
+        //Số phần tử trong 1 page
+        int size = 10;
+        Pageable pageable = PageRequest.of((page - 1), size, Sort.by("name"));
+
+        model.addAttribute("listStaffs", pagination.listStaffInPage(pageable));
+
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String a = authentication.getAuthorities().toString();
+//        System.out.println(a);
+
+        //Số trang pagination
+        List<Staff> listDepart = staffService.getAllStaffs();
+
+        //Số phần tử trong list
+        int lengthOfList = listDepart.size();
+        model.addAttribute("numberPagination", pagination.numberPagination(size, lengthOfList));
+
+        //model.addAttribute("listStaffs", staffService.getAllStaffs());
+        return "allStaff";
+    }
 }
