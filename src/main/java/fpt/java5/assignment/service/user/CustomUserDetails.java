@@ -29,6 +29,7 @@ public class CustomUserDetails implements UserDetails {
         return staff.getPassword();
     }
 
+
     @Override
     public String getUsername() {
         return staff.getUserName();
@@ -52,5 +53,9 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getEmail(){
+       return staff.getEmail();
     }
 }

@@ -39,7 +39,6 @@ public class Staff implements Serializable {
 	@Column(name = "gender")
 	private int gender;
 
-	
 	@NotNull(message = "Birthday can't be empty")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
@@ -84,5 +83,5 @@ public class Staff implements Serializable {
 	private Department department;
 	
 	@OneToMany(mappedBy = "staff", fetch =  FetchType.LAZY)
-	private Set<Record> record; 
+	private Set<Record> record;
 }

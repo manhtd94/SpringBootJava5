@@ -36,7 +36,7 @@
 
 
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary btn-sm">
+								<button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure?')">
 									<i class="fa fa-dot-circle-o"></i> Edit
 								</button>
 								<button type="reset" class="btn btn-danger btn-sm">

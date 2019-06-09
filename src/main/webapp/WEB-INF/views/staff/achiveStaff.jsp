@@ -21,7 +21,7 @@
 								<tr>
 									<th>ID</th>
 									<th>Name</th>
-									<th>Total Achievement</th>
+									<th>Total Award</th>
 									<th>Total Discipline</th>
 									<th>General</th>
 								</tr>

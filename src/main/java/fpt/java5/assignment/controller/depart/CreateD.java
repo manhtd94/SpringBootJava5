@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import fpt.java5.assignment.entities.Department;
 import fpt.java5.assignment.service.depart.DepartService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class CreateD {
@@ -25,11 +28,15 @@ public class CreateD {
 	}
 
 	@PostMapping("/createDepartment")
-	public String save(Model model, @Validated @ModelAttribute("newDepartment") Department newDepartment, BindingResult errors) {
+	public String save(
+					   RedirectAttributes redirectAttributes,
+					   @Validated @ModelAttribute("newDepartment") Department newDepartment,
+					   BindingResult errors) {
 		if (errors.hasErrors()) {
 			return "createDepartment";
 		} else {
 			departService.save(newDepartment);
+			redirectAttributes.addFlashAttribute("msg","Create success");
 			return "redirect:/alldepartment";
 		}
 	}

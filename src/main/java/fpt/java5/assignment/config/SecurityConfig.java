@@ -18,42 +18,44 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    @Qualifier(value = "userDetailServiceImp")
-    private UserDetailsService userDetailsService;
+	@Autowired
+	@Qualifier(value = "userDetailServiceImp")
+	private UserDetailsService userDetailsService;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable();
 
-        http
-                .authorizeRequests()
-                    .antMatchers("/", "/loginPage", "/logout").permitAll()
-                    //.antMatchers("/home").hasRole("ADMIN")
-                    .and()
+		http
+			.authorizeRequests()
+				.antMatchers("/", "/loginPage", "/logout").permitAll()
+				// .antMatchers("/home").hasRole("ADMIN")
+				.and()
 
-                .formLogin()
-                    .loginPage("/loginPage")
-                    .loginProcessingUrl("/j_spring_security_check")
-                    .usernameParameter("userName")
-                    .passwordParameter("password")
-                    .defaultSuccessUrl("/home")
-                    .failureUrl("/loginPage?error=true")
-                    .and()
+			.formLogin()
+				.loginPage("/loginPage")
+				.loginProcessingUrl("/j_spring_security_check")
+				.usernameParameter("userName")
+				.passwordParameter("password").defaultSuccessUrl("/home")
+				.failureUrl("/loginPage?error=true")
+				.and()
 
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/loginPage");
-    }
+			.logout()
+				.logoutUrl("/logout")
+				.logoutSuccessUrl("/loginPage").and();
+//			.exceptionHandling()
+//				.accessDeniedPage("/404");
+
+	}
 
 }
