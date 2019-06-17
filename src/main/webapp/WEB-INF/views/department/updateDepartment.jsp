@@ -30,7 +30,9 @@
 								<div class="col-12 col-md-9">
 									<form:input id="text-input" name="text-input"
 										placeholder="Text" class="form-control" path="name" />
-									<small class="form-text text-muted"></small>
+									<small class="form-text text-muted">
+										<form:errors path="name" />
+									</small>
 								</div>
 							</div>
 

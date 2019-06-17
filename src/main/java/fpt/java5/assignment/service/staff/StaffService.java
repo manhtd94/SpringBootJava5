@@ -6,14 +6,16 @@ import fpt.java5.assignment.entities.Staff;
 
 public interface StaffService {
 	
-	public List<Staff> getAllStaffs();
+	 List<Staff> getAllStaffs();
 	
-	public Staff save(Staff staff);
+	 Staff save(Staff staff);
 	
-	public void delete(int idStaff);
+	 void delete(int idStaff);
 	
-	public Staff getStaffById(int idStaff);
+	 Staff getStaffById(int idStaff);
 	
-	public List<Staff> findStaffByName(String name);
+	 List<Staff> findStaffByName(String name);
+
+	 boolean validateImageName(String name);
 	
 }

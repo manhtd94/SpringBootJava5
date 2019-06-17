@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -52,9 +53,10 @@ public class Staff implements Serializable {
 	@Column(name = "email")
 	private String email;
 
-	@NotNull(message = "Phone can't be empty")
+	@NotBlank(message = "Phone can't be empty")
 	@Column(name = "phone")
-	private int phone;
+	@Pattern(regexp = "[0][0-9*]{9}$", message = "The phone is not properly formatted")
+	private String phone;
 
 	@DecimalMin(value = "1000000")
 	@Column(name = "salary")
@@ -70,11 +72,11 @@ public class Staff implements Serializable {
 	@Column(name = "password")
 	private String password;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 				name = "user_role",
-				joinColumns = @JoinColumn(name = "id_user"),
-				inverseJoinColumns = @JoinColumn(name = "id_role")
+				joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "id"),
+				inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "role")
 			)
 	private Set<Role> roles;
 

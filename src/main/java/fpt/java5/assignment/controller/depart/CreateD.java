@@ -1,6 +1,7 @@
 package fpt.java5.assignment.controller.depart;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,13 +22,18 @@ public class CreateD {
 	@Autowired
 	DepartService departService;
 
+
+	//Display create Department page
 	@GetMapping({ "/createDepartment" })
+	@PreAuthorize("hasRole('ADMIN')")
 	public String showCreate(Model model, @ModelAttribute("newDepartment") Department newDepartment) {
 		model.addAttribute("newDepartment", new Department());
 		return "createDepartment";
 	}
 
+	//Create new Department
 	@PostMapping("/createDepartment")
+	@PreAuthorize("hasRole('ADMIN')")
 	public String save(
 					   RedirectAttributes redirectAttributes,
 					   @Validated @ModelAttribute("newDepartment") Department newDepartment,

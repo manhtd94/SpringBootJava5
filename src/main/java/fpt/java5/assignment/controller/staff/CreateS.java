@@ -80,7 +80,17 @@ public class CreateS {
 			if (photo.isEmpty()) {
 				model.addAttribute("errorImage", "Image can't be empty");
 				return "createStaff";
-			} else {
+			}
+			else if (!staffService.validateImageName(photo.getOriginalFilename())) {
+				model.addAttribute("errorImage","Image just is jpg or png");
+				return "createStaff";
+			}
+			else if(photo.getSize() > 10485760){
+				model.addAttribute("errorImage","Your image has size too large");
+				return "craeteStaff";
+			}
+
+			else {
 				try {
 					// image
 					String photoPath = servletContext.getRealPath("/imageupload/") + photo.getOriginalFilename();
@@ -109,7 +119,7 @@ public class CreateS {
 
 					staffService.save(newStaff);
 
-					redirectAttributes.addFlashAttribute("msg","Create Success New Staff");
+					redirectAttributes.addFlashAttribute("msg", "Create Success New Staff");
 
 					return "redirect:/allStaff";
 
