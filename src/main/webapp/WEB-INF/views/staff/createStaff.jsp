@@ -12,7 +12,7 @@
 	<div class="col-sm-4">
 		<div class="page-header float-left">
 			<div class="page-title">
-				<h1>Dashboard</h1>
+				<h1>Create new Staff</h1>
 			</div>
 		</div>
 	</div>
@@ -35,7 +35,7 @@
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-header">
-						<strong>Create new Staff</strong>
+						<strong></strong>
 					</div>
 					<div class="card-body card-block">
 						<form:form action="createStaff" method="post"
@@ -171,14 +171,17 @@
 									<form:textarea path="note" name="textarea-input"
 										id="textarea-input" rows="9" placeholder="Content..."
 										class="form-control" />
-									<small class="form-text text-muted"> <form:errors
+									<small class="form-text text-muted">
+										<form:errors
 											path="note"></form:errors>
 									</small>
 								</div>
 							</div>
 
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary btn-sm">
+								<button type="submit" class="btn btn-primary btn-sm"
+								onclick="return confirm('Are you sure?')"
+								>
 									<i class="fa fa-dot-circle-o"></i> Send
 								</button>
 								<button type="reset" class="btn btn-danger btn-sm">

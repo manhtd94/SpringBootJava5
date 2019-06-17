@@ -30,13 +30,15 @@
 								<div class="col-12 col-md-9">
 									<form:input id="text-input" name="text-input"
 										placeholder="Text" class="form-control" path="name" />
-									<small class="form-text text-muted"></small>
+									<small class="form-text text-muted">
+										<form:errors path="name" />
+									</small>
 								</div>
 							</div>
 
 
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary btn-sm">
+								<button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure?')">
 									<i class="fa fa-dot-circle-o"></i> Edit
 								</button>
 								<button type="reset" class="btn btn-danger btn-sm">

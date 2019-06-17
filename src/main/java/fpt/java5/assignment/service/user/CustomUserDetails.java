@@ -20,7 +20,7 @@ public class CustomUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return staff.getRoles()
                 .stream()
-                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -28,6 +28,7 @@ public class CustomUserDetails implements UserDetails {
     public String getPassword() {
         return staff.getPassword();
     }
+
 
     @Override
     public String getUsername() {
@@ -52,5 +53,9 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getEmail(){
+       return staff.getEmail();
     }
 }

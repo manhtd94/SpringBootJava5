@@ -11,32 +11,43 @@ import fpt.java5.assignment.repository.staff.StaffRepository;
 @Service
 public class StaffServiceImp implements StaffService {
 
-	@Autowired
-	StaffRepository staffRepository;
-	
-	@Override
-	public List<Staff> getAllStaffs() {
-		return (List<Staff>) staffRepository.findAll();
-	}
+    @Override
+    public boolean validateImageName(String name) {
+        // 4 charter of name of image
+        String subString = name.substring(name.length()-4);
+        if(subString.equals(".png") || subString.equals(".jpg")){
+            return true;
+        }
+        return false;
+    }
 
-	@Override
-	public Staff save(Staff staff) {
-		return staffRepository.save(staff);
-	}
+    @Autowired
+    StaffRepository staffRepository;
 
-	@Override
-	public void delete(int idStaff) {
-		staffRepository.deleteById(idStaff);;
-	}
+    @Override
+    public List<Staff> getAllStaffs() {
+        return (List<Staff>) staffRepository.findAll();
+    }
 
-	@Override
-	public Staff getStaffById(int idStaff) {
-		return staffRepository.findById(idStaff).get();
-	}
+    @Override
+    public Staff save(Staff staff) {
+        return staffRepository.save(staff);
+    }
 
-	@Override
-	public List<Staff> findStaffByName(String name) {
-		return staffRepository.findByNameLike(name);
-	}
+    @Override
+    public void delete(int idStaff) {
+        staffRepository.deleteById(idStaff);
+        ;
+    }
+
+    @Override
+    public Staff getStaffById(int idStaff) {
+        return staffRepository.findById(idStaff).get();
+    }
+
+    @Override
+    public List<Staff> findStaffByName(String name) {
+        return staffRepository.findByNameLike(name);
+    }
 
 }

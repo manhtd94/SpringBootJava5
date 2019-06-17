@@ -27,23 +27,23 @@ import lombok.Setter;
 @Table(name = "records")
 public class Record {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-	@Column(name = "type")
-	private int type;
+    @Column(name = "type")
+    private int type;
 
-	@Column(name = "reason")
-	private String reason;
+    @Column(name = "reason")
+    private String reason;
 
-	@Column(name = "daterecord")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date dateRecord;
+    @Column(name = "daterecord")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date dateRecord;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "staff_id")
-	private Staff staff;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
 }

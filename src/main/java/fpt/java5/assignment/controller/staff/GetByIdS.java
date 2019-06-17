@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,8 @@ import fpt.java5.assignment.entities.Staff;
 import fpt.java5.assignment.repository.role.RoleRepository;
 import fpt.java5.assignment.service.depart.DepartService;
 import fpt.java5.assignment.service.staff.StaffService;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class GetByIdS {
@@ -31,20 +34,26 @@ public class GetByIdS {
 	RoleRepository roleRepository;
 
 	@GetMapping("updateStaff/{id}")
-	public String getById(Model model, @PathVariable("id") int idStaff,
-			@ModelAttribute("staffUpdate") Staff staffUpdate) {
+	@PreAuthorize("hasRole('ADMIN')")
+	public String getById(Model model, HttpSession session,
+						  @PathVariable("id") int idStaff,
+							@ModelAttribute("staffUpdate") Staff staffUpdate) {
 		
 		staffUpdate = staffService.getStaffById(idStaff);
 		
 		//Get role of a staff
-		Set<Role> allRole = new HashSet<>();
-		allRole = staffUpdate.getRoles();
-		for(Role allll : allRole) {
+		Set<Role> allRoleOfStaff = new HashSet<>();
+		allRoleOfStaff = staffUpdate.getRoles();
+		for(Role allll : allRoleOfStaff) {
 			System.out.println(allll.getName());
 		}
-		model.addAttribute("roleOfStaff", allRole);
+		session.setAttribute("roleOfStaff", allRoleOfStaff);
 
 		model.addAttribute("staffUpdate", staffUpdate);
+
+		List<Role> getAllRoles = (List<Role>)roleRepository.findAll();
+		session.setAttribute("listRole",getAllRoles);
+		//model.addAttribute("listRole",getAllRoles);
 		return "updateStaff";
 	}
 
@@ -53,8 +62,8 @@ public class GetByIdS {
 		return departService.findAll();
 	}
 	
-	@ModelAttribute("listRole")
-	public List<Role> getAllRole(){
-		return (List<Role>)roleRepository.findAll();
-	}
+//	@ModelAttribute("listRole")
+//	public List<Role> getAllRole(){
+//		return (List<Role>)roleRepository.findAll();
+//	}
 }

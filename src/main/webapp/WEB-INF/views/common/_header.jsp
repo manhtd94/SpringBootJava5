@@ -4,7 +4,7 @@
             <div class="header-menu">
 
                 <div class="col-sm-7">
-                	<p>Welcome  ${pageContext.request.userPrincipal.name}</p>
+<%--                	<p>Welcome  ${pageContext.request.userPrincipal.name}</p>--%>
                 </div>
 
                 <div class="col-sm-5">

@@ -70,6 +70,11 @@
 		<put-attribute name="title" value="Find Staff" />
 		<put-attribute name="body" value="/WEB-INF/views/staff/searchResult.jsp" />
 	</definition>
+
+	<definition name="createSuccess" extends="base.definition">
+		<put-attribute name="title" value="Create Success" />
+		<put-attribute name="body" value="/WEB-INF/views/staff/createSuccess.jsp" />
+	</definition>
 	
 	<!-- record -->
 	<definition name="record" extends="base.definition">
