@@ -180,7 +180,7 @@
                                                 <c:forEach items="${listRole}" var="allRole">
                                                     <label for="checkbox1" class="form-check-label ">
                                                         <input
-                                                                type="checkbox" id="checkbox1" name="boxRole"
+                                                                type="radio" id="radio1" name="boxRole"
                                                                 value="${allRole.name}"> ${allRole.name}
                                                     </label>
                                                 </c:forEach>
@@ -190,8 +190,8 @@
                                                 <c:forEach items="${listRole}" var="listRoles">
                                                     <c:forEach items="${roleOfStaff}" var="roleOfStaff">
                                                         <div class="checkbox">
-                                                            <label for="checkbox1" class="form-check-label ">
-                                                                <input type="checkbox" id="checkbox1" name="boxRole"
+                                                            <label for="radio1" class="form-check-label ">
+                                                                <input type="radio" id="radio1" name="boxRole"
                                                                        value="${listRoles.name}"
                                                                        checked = "${listRoles.name == roleOfStaff.name?'checked':''}"/>
                                                                     ${listRoles.name}

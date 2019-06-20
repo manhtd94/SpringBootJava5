@@ -39,7 +39,7 @@
 				<div class="card-body pb-0">
 					<div class="dropdown float-right"></div>
 					<h4 class="mb-0">
-						<img alt="" src="/imageupload/sad.jpg"> 
+						<img style="width: 220px; height: 140px;" alt="" src="/imageupload/${staff[6]}">
 						<span class="count">${staff[2]}</span>
 						</h4>
 					<p class="text-light">${staff[1]}</p>

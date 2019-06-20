@@ -22,7 +22,8 @@ public class Find10RepositoryImp implements Find10Repository {
 				+ "r.staff.name,"
 				+ "SUM(case when r.type=1 then 1 else 0 end),"
 				+ "SUM(case when r.type=0 then 1 else 0 end),"
-				+ "(SUM(case when r.type=1 then 1 else 0 end) - SUM(case when r.type=0 then 1 else 0 end)) AS GeneralArch"
+				+ "(SUM(case when r.type=1 then 1 else 0 end) - SUM(case when r.type=0 then 1 else 0 end)) AS GeneralArch,"
+				+ "r.staff.photo"
 				+ " FROM Record r "
 				+ " GROUP BY r.staff.id"
 				+ " ORDER BY(SUM(case when r.type=1 then 1 else 0 end) - SUM(case when r.type=0 then 1 else 0 end)) DESC ")
